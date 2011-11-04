@@ -53,6 +53,7 @@ recovery and signal demodulation.
 %doc %{_texmfdistdir}/doc/generic/pst-am/pst-am-doc.tex
 #- source
 %doc %{_texmfdistdir}/source/generic/pst-am/Makefile
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -63,3 +64,5 @@ recovery and signal demodulation.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
