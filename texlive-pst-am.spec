@@ -6,7 +6,7 @@
 # catalog-version 1.02
 Name:		texlive-pst-am
 Version:	1.02
-Release:	7
+Release:	8
 Summary:	Simulation of modulation and demodulation
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-am
