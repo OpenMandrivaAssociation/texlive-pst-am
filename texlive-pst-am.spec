@@ -1,19 +1,13 @@
-# revision 19591
-# category Package
-# catalog-ctan /graphics/pstricks/contrib/pst-am
-# catalog-date 2010-09-04 14:00:25 +0200
-# catalog-license lppl
-# catalog-version 1.02
 Name:		texlive-pst-am
-Version:	1.02
-Release:	11
+Version:	19591
+Release:	1
 Summary:	Simulation of modulation and demodulation
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-am
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-am.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ of modulated signals, wave carrier, signal modulation, signal
 recovery and signal demodulation.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -47,24 +41,11 @@ recovery and signal demodulation.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.02-2
-+ Revision: 755212
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.02-1
-+ Revision: 719331
-- texlive-pst-am
-- texlive-pst-am
-- texlive-pst-am
-- texlive-pst-am
-
